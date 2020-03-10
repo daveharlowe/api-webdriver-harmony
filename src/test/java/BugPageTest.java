@@ -39,6 +39,13 @@ public class BugPageTest extends TestSetup {
 
     @Test
     public void TestForBugValues() {
+         // Login
+        MainPage mainPage = new MainPage(driver);
+        mainPage.ClickLogInLink();
+        mainPage.PopulateEmailAddress("admin@bugzilla.org");
+        mainPage.PopulatePassword("password");
+        mainPage.ClickLogin();
+        
         // Navigate to bug
         driver.navigate().to(baseUrl + "show_bug.cgi?id=" + bugResponsePayload.getId());
         BugPage bugPage = new BugPage(driver);
